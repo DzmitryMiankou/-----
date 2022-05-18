@@ -1,0 +1,95 @@
+:root {
+  box-sizing: border-box;
+  --main-color: rgb(0, 0, 0); /* Переменная черного цвета */
+  --logo-color-white: white; /* Переменная белого цвета */
+}
+*,
+::before,
+::after {
+  box-sizing: inherit;
+}
+body {
+  background-color: var(--logo-color-white);
+  display: grid;
+  align-items:flex-start;
+}
+.karusel {
+  display: grid;
+  grid-template-columns: 10% 80% 10%;
+  justify-items: center;
+  align-items: center;
+}
+.topbutt {
+  display:grid;
+  grid-template-columns: 30% 40% 30%;
+  justify-items: center;
+  align-items: flex-end;
+  height: 60px;
+}
+#maindiv1 {
+  /*position: relative;*/
+  display: grid;
+  margin: 0px auto;
+  width: 453px;
+  height: 150px;
+  background-color: #381000;
+  overflow-x: hidden;
+}
+#maindiv2 {
+  /*position: relative;*/
+  display: grid;
+  margin: 0px auto;
+  width: 453px;
+  height: 204px;
+  background-color: #381000;
+  overflow-x: hidden;
+}
+#maindiv3 {
+  /*position: relative;*/
+  display: grid;
+  margin: 0px auto;
+  width: 453px;
+  height: 157px;
+  background-color: #381000;
+  overflow-x: hidden;
+}
+
+#scr1 {
+  
+  height: 150px;
+  background-color: rgb(0, 0, 0);
+  background: url("images/1.top.jpg") no-repeat;
+  background-repeat: repeat-x;
+
+}
+#scr2 {
+
+  height: 204px;
+  background-color: rgb(0, 0, 0);
+  background: url("images/2.midl.jpg") no-repeat;
+  background-repeat: repeat-x;
+
+}
+#scr3 {
+
+  height: 157px;
+  background-color: rgb(0, 0, 0);
+  background: url("images/3.bottom.jpg") no-repeat;
+  background-repeat: repeat-x;
+
+}
+
+button {
+  height: 40px;
+  width: 60%;
+  font-weight: bold;
+  text-align: center;
+  color: white;
+  background: #ff0004;
+  border: none;
+  font-size: 1.5rem;
+
+}
+button:hover {
+  background-color: var(--main-color)
+}
