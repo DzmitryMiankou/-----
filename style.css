@@ -72,14 +72,21 @@ body {
   background-repeat: repeat-x;
 }
 button {
-  height: 40px;
-  width: 60%;
+  height: 50px;
+  width: 50%;
   font-weight: bold;
   text-align: center;
   color: white;
   background: #ff0004;
   border: none;
   font-size: 1.5rem;
+  border-radius:49% 51% 68% 32% / 70% 45% 55% 30%
+  
+}
+.topbutt button {
+  height: 60px;
+    width: 50%;
+border-radius:49% 51% 68% 32% / 0% 0% 100% 100%
 }
 button:hover {
   background-color: var(--main-color)
