@@ -1,16 +1,24 @@
 "use strict"
-var tim;
+let tim;
 	window.onload = function() { // запуск слайдера после загрузки документа
 		slider.init();
-		tim = setInterval(function() { // ставим двухсекундный интервал для перелистывания картинок
-			slider.right();
-		},2000);
-	};
-	var slider = {
+		tim = setInterval(function() {
+	 // ставим двухсекундный интервал для перелистывания картинок
+		slider.right();
+		/*let main = document.getElementById("maindiv1");
+			main.style.filter = "saturate(0%)";*/
+		},3000);
+}
+	const slider = {
 		slides: 2, //количество слайдов
 		frame:0, // текущий кадр для отображения - номер картинки 
 		set: function(image) { // установка нужного смещения картинки фона 
-			document.getElementById("scr1").style.backgroundPositionX = -image*453+"px";
+			let sr1 = document.getElementById("scr1");
+			sr1.style.backgroundPositionX = -image*453+"px";
+			let sr2 = document.getElementById("scr2");
+			sr2.style.backgroundPositionX = -image*453+"px";
+			let sr3 = document.getElementById("scr3");
+			sr3.style.backgroundPositionX = -image*453+"px";
 		},
 		init: function() { // запуск слайдера с картинкой с нулевым индексом
 			this.set(0);
@@ -32,5 +40,5 @@ var tim;
 			tim = setInterval(function() { // ставим пятисекундный интервал для перелистывания картинок, листаем вправо
 				slider.right();
 			},2000);
-		}
+		},
 	};
