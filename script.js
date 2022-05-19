@@ -42,3 +42,25 @@ let tim;
 			},2000);
 		},
 	};
+	const getOnclik = (a,b,c,d,f) => {
+a.onclick = () =>{
+			c.style.filter = "saturate(0%)";
+			d.style.filter = "saturate(0%)";
+			f.style.filter = "saturate(0%)";
+			a.style.background = "black";
+			b.style.background = "black";
+		};
+b.onclick = () =>{
+			c.style.filter = "saturate(100%)";
+			d.style.filter = "saturate(100%)";
+			f.style.filter = "saturate(100%)";
+			a.style.background = "red";
+			b.style.background = "red";
+		};
+}
+let main = document.getElementById("maindiv1");
+let main2 = document.getElementById("maindiv2");
+let main3 = document.getElementById("maindiv3");
+let neg = document.getElementById("negat");
+let paz = document.getElementById("pazit");
+getOnclik(neg,paz,main,main2,main3);
