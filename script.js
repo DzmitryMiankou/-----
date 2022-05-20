@@ -1,4 +1,16 @@
 "use strict"
+window.onload = () =>{
+negativ.onclick = () => {
+const getfilter = new Getfilter(scr1,scr3,scr2);
+getfilter.getFilterNegativ();
+};
+pazitiv.onclick = () => {
+const getfilter = new Getfilter(scr1,scr3,scr2);
+getfilter.getFilterPozitiv();
+};
+}
+const right = document.getElementById('slider.right1');
+const left = document.getElementById('slider.left1');
 const scr1 = document.getElementById('scr1');
 const scr2 = document.getElementById('scr2');
 const scr3 = document.getElementById('scr3');
@@ -9,26 +21,41 @@ class Getfilter {
         this.a=a;
         this.b=b;
         this.c=c;
+        this.f=0;
+        this.sl=2;
     }
     getFilterNegativ() {
-     this.a.style.filter = "saturate(0%)";
-     this.b.style.filter = "saturate(0%)";
-     this.c.style.filter = "saturate(0%)";
+        this.a.style.filter = "saturate(0%)";
+        this.b.style.filter = "saturate(0%)";
+        this.c.style.filter = "saturate(0%)";
+    }
+    getFilterPozitiv() {
+        this.a.style.filter = "saturate(100%)";
+        this.b.style.filter = "saturate(100%)";
+        this.c.style.filter = "saturate(100%)";
+        }
+};  
+let frame = 0;
+let sl = 2;
+/*
+right.onclick = () =>{
+  let f = (image)=> {
+    scr1.style.backgroundPositionX = -image * 453 + "px";
+  }
+  frame++;
+    if (frame < 0) frame = sl - 1;
+    f(frame);
+};*/
+const r = (a) => {
+  let f = (image)=> {
+    a.style.backgroundPositionX = -image * 453 + "px";
+  }
+  frame++;
+    if (frame < 0) frame = sl - 1;
+    f(frame);
 }
-     getFilterPozitiv() {
-     this.a.style.filter = "saturate(100%)";
-     this.b.style.filter = "saturate(100%)";
-     this.c.style.filter = "saturate(100%)";
-     }
-}
-negativ.onclick = function() {
-const getfilter = new Getfilter(scr1,scr3,scr2);
-getfilter.getFilterNegativ();
-}
-pazitiv.onclick = function() {
-const getfilter = new Getfilter(scr1,scr3,scr2);
-getfilter.getFilterPozitiv();
-}
+right.onclick = () =>{ r(scr1)};
+left.onclick = () =>{ r(scr1)};
 
 
  /*let tim;
@@ -78,20 +105,4 @@ getfilter.getFilterPozitiv();
             slider.right();
           }, 3000);
         },
-      };
-      sliderpazit = () => {
-        let c = document.getElementById("maindiv1");
-        c.style.filter = "saturate(100%)";
-        let b = document.getElementById("maindiv2");
-        b.style.filter = "saturate(100%)";
-        let a = document.getElementById("maindiv3");
-        a.style.filter = "saturate(100%)";
-      };
-      sliderneg = () => {
-        let c = document.getElementById("maindiv1");
-        c.style.filter = "saturate(0%)";
-        let b = document.getElementById("maindiv2");
-        b.style.filter = "saturate(0%)";
-        let a = document.getElementById("maindiv3");
-        a.style.filter = "saturate(0%)";
       };*/
