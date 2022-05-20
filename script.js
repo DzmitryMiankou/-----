@@ -12,19 +12,20 @@ const negativ = document.getElementById('negat');
 const pazitiv = document.getElementById('pazit');
 
 window.onload = () =>{
-     const getfilter = new Getfilter(scr1,scr3,scr2);
+     const getfilter = new Getfilter(scr1,scr2,scr3);
      getfilter.putFilterNegativ();
      getfilter.putFilterPozitiv();
+     getfilter.runbuttons()
   }
 
-  
+
 class Getfilter {
-    constructor (a,b,c){
+    constructor (a,b,c,d){
         this.a=a;
         this.b=b;
         this.c=c;
         this.frame=0;
-        this.slides=2;
+        this.slides=4;
     }
     putFilterNegativ() {
       negativ.onclick = () => {
@@ -40,7 +41,47 @@ class Getfilter {
         this.c.style.filter = "saturate(100%)";
         }
         };
+    set(image){
+      this.d.style.backgroundPositionX = -image * 453 + "px";
+    }
+    right(){
+      this.frame++;
+      if (this.frame == this.slides) this.frame = 0;
+      this.set(this.frame);
+    }
+    left(){
+      this.frame--;
+      if (this.frame < 0) this.frame = this.slides - 1;
+      this.set(this.frame);
+    }
+    runbuttons(){
+      right.onclick = () => {
+        this.d = this.a;
+        this.right();
+      };
+      right2.onclick = () => {
+        this.d = this.b;
+        this.right();
+      };
+      right3.onclick = () => {
+        this.d = this.c;
+        this.right();
+      };
+      left.onclick = () => {
+        this.d = this.a;
+        this.left();
+      };
+      left2.onclick = () => {
+        this.d = this.b;
+        this.left();
+      };
+      left3.onclick = () => {
+        this.d = this.c;
+        this.left();
+      };
+    }
 };  
+/*
 let frame = 0;
 let sl = 4;
 const r = (a) => {
@@ -65,7 +106,7 @@ right2.onclick = () =>{ r(scr2)};
 left2.onclick = () =>{ k(scr2)};
 right3.onclick = () =>{ r(scr3)};
 left3.onclick = () =>{ k(scr3)};
-
+*/
 
  /*let tim;
       window.onload = function () {
