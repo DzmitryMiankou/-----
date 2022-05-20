@@ -1,16 +1,20 @@
 "use strict"
 window.onload = () =>{
-negativ.onclick = () => {
-const getfilter = new Getfilter(scr1,scr3,scr2);
-getfilter.getFilterNegativ();
-};
-pazitiv.onclick = () => {
-const getfilter = new Getfilter(scr1,scr3,scr2);
-getfilter.getFilterPozitiv();
-};
+  negativ.onclick = () => {
+     const getfilter = new Getfilter(scr1,scr3,scr2);
+     getfilter.getFilterNegativ();
+  };
+  pazitiv.onclick = () => {
+     const getfilter = new Getfilter(scr1,scr3,scr2);
+     getfilter.getFilterPozitiv();
+  };
 }
 const right = document.getElementById('slider.right1');
 const left = document.getElementById('slider.left1');
+const right2 = document.getElementById('slider.right2');
+const left2 = document.getElementById('slider.left2');
+const right3 = document.getElementById('slider.right3');
+const left3 = document.getElementById('slider.left3');
 const scr1 = document.getElementById('scr1');
 const scr2 = document.getElementById('scr2');
 const scr3 = document.getElementById('scr3');
@@ -54,8 +58,20 @@ const r = (a) => {
     if (frame < 0) frame = sl - 1;
     f(frame);
 }
-right.onclick = () =>{ r(scr1)};
-left.onclick = () =>{ r(scr1)};
+const k = (a) => {
+  let f = (image)=> {
+    a.style.backgroundPositionX = -image * 453 + "px";
+  }
+  frame++;
+    if (frame < 0) frame = sl - 1;
+    f(frame);
+}
+right.onclick = () =>{ r(scr1)}; 
+left.onclick = () =>{ k(scr1)};
+right2.onclick = () =>{ r(scr2)};
+left2.onclick = () =>{ k(scr2)};
+right3.onclick = () =>{ r(scr3)};
+left3.onclick = () =>{ k(scr3)};
 
 
  /*let tim;
