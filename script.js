@@ -18,29 +18,25 @@ window.onload = () =>{
      getfilter.runbuttons()
   }
 
-
 class Getfilter {
-    constructor (a,b,c,d){
+    constructor (a,b,c){
         this.a=a;
         this.b=b;
         this.c=c;
         this.frame=0;
         this.slides=4;
+        this.arrImg = [this.a, this.b, this.c];
     }
     putFilterNegativ() {
       negativ.onclick = () => {
-        this.a.style.filter = "saturate(0%)";
-        this.b.style.filter = "saturate(0%)";
-        this.c.style.filter = "saturate(0%)";
+        this.arrImg.forEach(Element => Element.style.filter = "saturate(0%)");
     }
      };
     putFilterPozitiv() {
       pazitiv.onclick = () => {
-        this.a.style.filter = "saturate(100%)";
-        this.b.style.filter = "saturate(100%)";
-        this.c.style.filter = "saturate(100%)";
-        }
-        };
+        this.arrImg.forEach(Element => Element.style.filter = "saturate(100%)");
+    }
+     };
     set(image){
       this.d.style.backgroundPositionX = -image * 453 + "px";
     }
@@ -81,6 +77,7 @@ class Getfilter {
       };
     }
 };  
+
 /*
 let frame = 0;
 let sl = 4;
