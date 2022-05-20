@@ -1,14 +1,4 @@
 "use strict"
-window.onload = () =>{
-  negativ.onclick = () => {
-     const getfilter = new Getfilter(scr1,scr3,scr2);
-     getfilter.getFilterNegativ();
-  };
-  pazitiv.onclick = () => {
-     const getfilter = new Getfilter(scr1,scr3,scr2);
-     getfilter.getFilterPozitiv();
-  };
-}
 const right = document.getElementById('slider.right1');
 const left = document.getElementById('slider.left1');
 const right2 = document.getElementById('slider.right2');
@@ -20,36 +10,39 @@ const scr2 = document.getElementById('scr2');
 const scr3 = document.getElementById('scr3');
 const negativ = document.getElementById('negat');
 const pazitiv = document.getElementById('pazit');
+
+window.onload = () =>{
+     const getfilter = new Getfilter(scr1,scr3,scr2);
+     getfilter.putFilterNegativ();
+     getfilter.putFilterPozitiv();
+  }
+
+  
 class Getfilter {
     constructor (a,b,c){
         this.a=a;
         this.b=b;
         this.c=c;
-        this.f=0;
-        this.sl=2;
+        this.frame=0;
+        this.slides=2;
     }
-    getFilterNegativ() {
+    putFilterNegativ() {
+      negativ.onclick = () => {
         this.a.style.filter = "saturate(0%)";
         this.b.style.filter = "saturate(0%)";
         this.c.style.filter = "saturate(0%)";
     }
-    getFilterPozitiv() {
+     };
+    putFilterPozitiv() {
+      pazitiv.onclick = () => {
         this.a.style.filter = "saturate(100%)";
         this.b.style.filter = "saturate(100%)";
         this.c.style.filter = "saturate(100%)";
         }
+        };
 };  
 let frame = 0;
-let sl = 2;
-/*
-right.onclick = () =>{
-  let f = (image)=> {
-    scr1.style.backgroundPositionX = -image * 453 + "px";
-  }
-  frame++;
-    if (frame < 0) frame = sl - 1;
-    f(frame);
-};*/
+let sl = 4;
 const r = (a) => {
   let f = (image)=> {
     a.style.backgroundPositionX = -image * 453 + "px";
@@ -63,7 +56,7 @@ const k = (a) => {
     a.style.backgroundPositionX = -image * 453 + "px";
   }
   frame++;
-    if (frame < 0) frame = sl - 1;
+    if (frame < 0) frame = 0;
     f(frame);
 }
 right.onclick = () =>{ r(scr1)}; 
