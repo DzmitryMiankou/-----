@@ -10,8 +10,6 @@ const buttons = document.querySelector(`.buttes`);
 let time;
 window.onload = () =>{
      const getfilter = new Getfilter(arrImages);
-     getfilter.putFilterNegativ();
-     getfilter.putFilterPozitiv();
      getfilter.runButtons();
      time = setInterval (()  => {
      getfilter.carousel()},4000);
