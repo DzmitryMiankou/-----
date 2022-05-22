@@ -6,40 +6,47 @@ const negativ = document.getElementById('negat');
 const pazitiv = document.getElementById('pazit');
 const arrButt = [negativ,pazitiv];
 const arrImages = [scr1,scr2,scr3];
-const buttons = document.querySelector(`.karusel`);
+const buttons = document.querySelector(`.buttes`);
+let time;
 window.onload = () =>{
-     const getfilter = new Getfilter(arrImages,arrButt);
+     const getfilter = new Getfilter(arrImages);
      getfilter.putFilterNegativ();
      getfilter.putFilterPozitiv();
-     getfilter.runButtons()
+     getfilter.runButtons();
+     time = setInterval (()  => {
+     getfilter.carousel()},2000);
   }
-
 class Getfilter {
-    constructor (images,button){
-      this.button = button;
+    constructor (images){
         this.images = images;
         this.frame=0;
         this.slides=4;
     }
     putFilterNegativ() {
-      this.button[0].onclick = () => {
         this.images.forEach(Element => Element.style.filter = "saturate(0%)");
-    }
      };
     putFilterPozitiv() {
-      this.button[1].onclick = () => {
         this.images.forEach(Element => Element.style.filter = "saturate(100%)");
-    }
      };
     set(image){
       this.d.style.backgroundPositionX = -image * 453 + "px";
     }
+    setCarousel (image){
+      this.images.forEach(Element => Element.style.backgroundPositionX = -image * 453 + "px");
+    }
+    carousel() {
+      this.frame++;
+      if (this.frame == this.slides) this.frame = 0;
+      this.setCarousel(this.frame)
+    }
     right(){
+      clearInterval(time);
       this.frame++;
       if (this.frame == this.slides) this.frame = 0;
       this.set(this.frame);
     }
     left(){
+      clearInterval(time);
       this.frame--;
       if (this.frame < 0) this.frame = this.slides - 1;
       this.set(this.frame);
@@ -74,7 +81,13 @@ class Getfilter {
             break;
           case "slider.right3": 
             this.shou(this.images[2]);
-            this.right(); 
+            this.right();
+            break;
+          case "pazit": 
+            this.putFilterPozitiv(); 
+            break;
+          case "negat":
+            this.putFilterNegativ();
             break;
         }
       })
