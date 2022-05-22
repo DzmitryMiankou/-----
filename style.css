@@ -85,9 +85,9 @@ button {
 }
 .topbutt button {
   height: 60px;
-    width: 50%;
-border-radius:49% 51% 68% 32% / 0% 0% 100% 100%;
-border: none;
+  width: 50%;
+  border-radius:49% 51% 68% 32% / 0% 0% 100% 100%;
+  border: none;
 }
 button:hover {
   background-color: var(--main-color)
