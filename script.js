@@ -12,7 +12,6 @@ window.onload = () =>{
      getfilter.putFilterNegativ();
      getfilter.putFilterPozitiv();
      getfilter.runButtons()
-     /*setInterval(() => document.getElementById('slider.right1').onclick, 1000);*/
   }
 
 class Getfilter {
@@ -79,18 +78,5 @@ class Getfilter {
             break;
         }
       })
-    }
-};  
-
-
-      
-/*
-const button = document.querySelector(`.l`);
-function shou () {
-    console.log(`Ура!`);
-}
-button.addEventListener("click",function(event) {
-if (event.target.closest(`.button`)){
-shou();
-}
-});*/
+    };
+}; 
