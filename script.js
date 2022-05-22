@@ -44,12 +44,18 @@ class Getfilter {
       this.frame++;
       if (this.frame == this.slides) this.frame = 0;
       this.set(this.frame);
+      time = setInterval(() => { // ставим пятисекундный интервал для перелистывания картинок, листаем вправо
+				this.carousel();
+			},2000);
     }
     left(){
       clearInterval(time);
       this.frame--;
       if (this.frame < 0) this.frame = this.slides - 1;
       this.set(this.frame);
+      time = setInterval(() => { // ставим пятисекундный интервал для перелистывания картинок, листаем вправо
+				this.carousel();
+			},2000);
     }
     shou (a) {
         this.d = a;
