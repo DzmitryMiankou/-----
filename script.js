@@ -1,40 +1,35 @@
 "use strict"
-const right = document.getElementById('slider.right1');
-const left = document.getElementById('slider.left1');
-const right2 = document.getElementById('slider.right2');
-const left2 = document.getElementById('slider.left2');
-const right3 = document.getElementById('slider.right3');
-const left3 = document.getElementById('slider.left3');
 const scr1 = document.getElementById('scr1');
 const scr2 = document.getElementById('scr2');
 const scr3 = document.getElementById('scr3');
 const negativ = document.getElementById('negat');
 const pazitiv = document.getElementById('pazit');
-
+const arrButt = [negativ,pazitiv];
+const arrImages = [scr1,scr2,scr3];
+const buttons = document.querySelector(`.karusel`);
 window.onload = () =>{
-     const getfilter = new Getfilter(scr1,scr2,scr3);
+     const getfilter = new Getfilter(arrImages,arrButt);
      getfilter.putFilterNegativ();
      getfilter.putFilterPozitiv();
-     getfilter.runbuttons()
+     getfilter.runButtons()
+     /*setInterval(() => document.getElementById('slider.right1').onclick, 1000);*/
   }
 
 class Getfilter {
-    constructor (a,b,c){
-        this.a=a;
-        this.b=b;
-        this.c=c;
+    constructor (images,button){
+      this.button = button;
+        this.images = images;
         this.frame=0;
         this.slides=4;
-        this.arrImg = [this.a, this.b, this.c];
     }
     putFilterNegativ() {
-      negativ.onclick = () => {
-        this.arrImg.forEach(Element => Element.style.filter = "saturate(0%)");
+      this.button[0].onclick = () => {
+        this.images.forEach(Element => Element.style.filter = "saturate(0%)");
     }
      };
     putFilterPozitiv() {
-      pazitiv.onclick = () => {
-        this.arrImg.forEach(Element => Element.style.filter = "saturate(100%)");
+      this.button[1].onclick = () => {
+        this.images.forEach(Element => Element.style.filter = "saturate(100%)");
     }
      };
     set(image){
@@ -50,30 +45,52 @@ class Getfilter {
       if (this.frame < 0) this.frame = this.slides - 1;
       this.set(this.frame);
     }
-    runbuttons(){
-      right.onclick = () => {
-        this.d = this.a;
-        this.right();
-      };
-      right2.onclick = () => {
-        this.d = this.b;
-        this.right();
-      };
-      right3.onclick = () => {
-        this.d = this.c;
-        this.right();
-      };
-      left.onclick = () => {
-        this.d = this.a;
-        this.left();
-      };
-      left2.onclick = () => {
-        this.d = this.b;
-        this.left();
-      };
-      left3.onclick = () => {
-        this.d = this.c;
-        this.left();
-      };
+    shou (a) {
+        this.d = a;
+        this.set(a);
+      }
+    runButtons(){
+      buttons.addEventListener("click", (event) => {
+        let target = event.target;
+        switch(target.id) {
+          case "slider.left1":
+            this.shou(this.images[0]);
+            this.left();
+            break;
+          case "slider.left2": 
+            this.shou(this.images[1]);
+            this.left(); 
+            break;
+          case "slider.left3": 
+            this.shou(this.images[2]);
+            this.left(); 
+            break;
+          case "slider.right1":
+            this.shou(this.images[0]);
+            this.right();
+            break;
+          case "slider.right2": 
+            this.shou(this.images[1]);
+            this.right();
+            break;
+          case "slider.right3": 
+            this.shou(this.images[2]);
+            this.right(); 
+            break;
+        }
+      })
     }
 };  
+
+
+      
+/*
+const button = document.querySelector(`.l`);
+function shou () {
+    console.log(`Ура!`);
+}
+button.addEventListener("click",function(event) {
+if (event.target.closest(`.button`)){
+shou();
+}
+});*/
