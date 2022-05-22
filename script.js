@@ -14,7 +14,7 @@ window.onload = () =>{
      getfilter.putFilterPozitiv();
      getfilter.runButtons();
      time = setInterval (()  => {
-     getfilter.carousel()},2000);
+     getfilter.carousel()},4000);
   }
 class Getfilter {
     constructor (images){
@@ -46,7 +46,7 @@ class Getfilter {
       this.set(this.frame);
       time = setInterval(() => { 
 				this.carousel();
-			},2000);
+			},4000);
     }
     left(){
       clearInterval(time);
@@ -55,7 +55,7 @@ class Getfilter {
       this.set(this.frame);
       time = setInterval(() => { 
 				this.carousel();
-			},2000);
+			},4000);
     }
     shou (a) {
         this.d = a;
